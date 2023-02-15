@@ -52,6 +52,18 @@ public class EmployeeRepository {
 		 else
 			 return "Record cannot be Deleted";
 	}
+	public String search(Employee employeeModel) {
+		String sql = "select * from Employee where empId=:empId";
+		MapSqlParameterSource paramap = new MapSqlParameterSource();
+		paramap.addValue("empId",employeeModel.getEmpId());
+		paramap.addValue("fname",employeeModel.getFname());
+		
+		int i=namedParameterJdbcTemplate.update(sql, paramap);
+		 if(i==1)
+			 return employeeModel.getFname();
+		 else
+			 return "please search differance id";
+	}
 	
 	
 	}

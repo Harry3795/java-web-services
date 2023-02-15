@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.apptad.demo.model.Employee;
 import com.apptad.demo.service.DeleteService;
 import com.apptad.demo.service.InsertService;
+import com.apptad.demo.service.SearchService;
 import com.apptad.demo.service.UpdateService;
 @RestController
 public class Testcontroller {
@@ -40,6 +41,13 @@ DeleteService deleteService;
 public String deleteEmployee(@RequestBody Employee employeeModel) {
 	return deleteService.Delete(employeeModel);
 	
+}
+@Autowired
+SearchService searchService;
+@GetMapping(value="id/{employeeModel}")
+
+public String searchEmployee(@PathVariable Employee employeeModel) {
+	return searchService.Search(employeeModel);
 }
 
 	
