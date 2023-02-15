@@ -6,12 +6,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.apptad.demo.model.Employee;
 import com.apptad.demo.service.InsertService;
+import com.apptad.demo.service.UpdateService;
 @RestController
 public class Testcontroller {
 	
@@ -21,6 +23,13 @@ InsertService insertService;
 @PostMapping(value="/creating")
 public String createEmployee(@RequestBody Employee employeeModel) {
 	return insertService.Insert(employeeModel);
+	
+}
+@Autowired
+UpdateService updateService;
+@PutMapping(value="/update")
+public String updateEmployee(@RequestBody Employee employeeModel) {
+	return updateService.Update(employeeModel);
 	
 }
 

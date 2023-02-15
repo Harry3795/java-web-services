@@ -28,6 +28,19 @@ public class EmployeeRepository {
 			 return "Record cannot be inserted";
 		 
 	}
+	public String update(Employee employeeModel) {
+		String sql = "UPDATE Employee set fname=:fname where empId=:empId";
+		MapSqlParameterSource paramap = new MapSqlParameterSource();
+		paramap.addValue("empId",employeeModel.getEmpId());
+		paramap.addValue("fname",employeeModel.getFname());
+		
+		int i=namedParameterJdbcTemplate.update(sql, paramap);
+		 if(i==1)
+			 return "Record updated";
+		 else
+			 return "Record cannot be updated";
+	}
+	
 	
 	}
 
