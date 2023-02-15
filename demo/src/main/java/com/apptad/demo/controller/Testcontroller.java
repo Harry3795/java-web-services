@@ -3,6 +3,7 @@ package com.apptad.demo.controller;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.apptad.demo.model.Employee;
+import com.apptad.demo.service.DeleteService;
 import com.apptad.demo.service.InsertService;
 import com.apptad.demo.service.UpdateService;
 @RestController
@@ -30,6 +32,13 @@ UpdateService updateService;
 @PutMapping(value="/update")
 public String updateEmployee(@RequestBody Employee employeeModel) {
 	return updateService.Update(employeeModel);
+	
+}
+@Autowired
+DeleteService deleteService;
+@DeleteMapping(value="/delete")
+public String deleteEmployee(@RequestBody Employee employeeModel) {
+	return deleteService.Delete(employeeModel);
 	
 }
 

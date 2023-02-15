@@ -40,6 +40,18 @@ public class EmployeeRepository {
 		 else
 			 return "Record cannot be updated";
 	}
+	public String delete(Employee employeeModel) {
+		String sql = "DELETE from Employee where empId=:empId and fname=:fname";
+		MapSqlParameterSource paramap = new MapSqlParameterSource();
+		paramap.addValue("empId",employeeModel.getEmpId());
+		paramap.addValue("fname",employeeModel.getFname());
+		
+		int i=namedParameterJdbcTemplate.update(sql, paramap);
+		 if(i==1)
+			 return "Record Deleted";
+		 else
+			 return "Record cannot be Deleted";
+	}
 	
 	
 	}
