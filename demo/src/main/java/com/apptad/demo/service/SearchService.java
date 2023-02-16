@@ -1,5 +1,7 @@
 package com.apptad.demo.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -9,9 +11,16 @@ import com.apptad.demo.repository.EmployeeRepository;
 public class SearchService {
 	@Autowired
 	EmployeeRepository employeeRepository;
-	public String Search(Employee employeeModel) {
+	public List<Employee> Search(String empId) {
+		return employeeRepository.search(empId);
 		
-		return employeeRepository.search(employeeModel);
+		
 	}
+
+	public List<Employee> SearchName(String fname) {
+		// TODO Auto-generated method stub
+		return employeeRepository.searchByName(fname);
+	}
+
 
 }

@@ -1,5 +1,6 @@
 package com.apptad.demo.controller;
 
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,10 +18,11 @@ import com.apptad.demo.service.DeleteService;
 import com.apptad.demo.service.InsertService;
 import com.apptad.demo.service.SearchService;
 import com.apptad.demo.service.UpdateService;
+
 @RestController
 public class Testcontroller {
 	
-
+//Insert-------------------------------------------------------------------------------------------
 @Autowired
 InsertService insertService;
 @PostMapping(value="/creating")
@@ -28,6 +30,7 @@ public String createEmployee(@RequestBody Employee employeeModel) {
 	return insertService.Insert(employeeModel);
 	
 }
+//update---------------------------------------------------------------------
 @Autowired
 UpdateService updateService;
 @PutMapping(value="/update")
@@ -35,6 +38,7 @@ public String updateEmployee(@RequestBody Employee employeeModel) {
 	return updateService.Update(employeeModel);
 	
 }
+//delete ---------------------------------------------------------------------------------
 @Autowired
 DeleteService deleteService;
 @DeleteMapping(value="/delete")
@@ -42,16 +46,34 @@ public String deleteEmployee(@RequestBody Employee employeeModel) {
 	return deleteService.Delete(employeeModel);
 	
 }
+
+//search------------------------------------------------------------------------------------
+
 @Autowired
 SearchService searchService;
-@GetMapping(value="id/{employeeModel}")
-
-public String searchEmployee(@PathVariable Employee employeeModel) {
-	return searchService.Search(employeeModel);
+@GetMapping(value="/search")
+public List<Employee> searchEmployee(@RequestParam String empId) {
+System.out.println(empId);
+		return searchService.Search(empId);
+}
+//search By name -----------------------------------------------------------------------------------
+@Autowired
+SearchService searchServiceByName;
+@GetMapping(value="/search/name")
+public List<Employee> searchEmployeeName(@RequestParam String fname) {
+System.out.println(fname);
+		return searchServiceByName.SearchName(fname);
 }
 
-	
-	
+/*
+ * @Autowired SearchService getAlldata;
+ * 
+ * @GetMapping (value="/getalldata") public List<Employee> getAllData(){ return
+ * getAlldata.getAllData();
+ * 
+ * }
+ */
+
 	
 @GetMapping(value="/test1")
 public String Test1() {
