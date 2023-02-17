@@ -2,12 +2,12 @@ package com.apptad.demo.model;
 
 public class Employee {
 
-private String empId;	
+private int empId;	
 private String fname;
 private String lname;
 
 private String address;
-private String contact;
+private int contact;
 private String emailId;
 
 
@@ -24,6 +24,7 @@ public void setFname(String fname) {
 public void setLname(String lname) {
 	 this.lname=lname;
 }
+//tostring----------------------------------------------------------------
 @Override
 public String toString() {
 	return this.fname + " "+ this.lname;
@@ -31,10 +32,10 @@ public String toString() {
 
 
 
-public String getEmpId() {
+public int getEmpId() {
 	return empId;
 }
-public void setEmpId(String empId) {
+public void setEmpId(int empId) {
 	this.empId = empId;
 }
 public String getAddress() {
@@ -43,10 +44,10 @@ public String getAddress() {
 public void setAddress(String address) {
 	this.address = address;
 }
-public String getContact() {
+public int getContact() {
 	return contact;
 }
-public void setContact(String contact) {
+public void setContact(int contact) {
 	this.contact = contact;
 }
 public String getEmailId() {

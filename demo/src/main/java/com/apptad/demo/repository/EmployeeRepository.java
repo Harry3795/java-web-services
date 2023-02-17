@@ -20,9 +20,9 @@ public class EmployeeRepository {
 	//INSERT--------------------------------------------------------------------------------------
 	NamedParameterJdbcTemplate namedParameterJdbcTemplate;
 	public String insert(Employee employeeModel) {
-		String sql = "INSERT INTO Employee(empId, fname ,lname , address, contact,emailId) VALUES (:empId, :fname ,:lname , :address, :contact,:emailId )";
+		String sql = "INSERT INTO Emp(fname ,lname , address, contact,emailId) VALUES (:fname ,:lname , :address, :contact,:emailId )";
 		MapSqlParameterSource paramap = new MapSqlParameterSource();
-		paramap.addValue("empId",employeeModel.getEmpId());
+//		paramap.addValue("empId",employeeModel.getEmpId());
 		paramap.addValue("fname",employeeModel.getFname());
 		paramap.addValue("lname",employeeModel.getLname());
 		paramap.addValue("address",employeeModel.getAddress());
@@ -32,7 +32,7 @@ public class EmployeeRepository {
 		 if(i==1)
 			 return "Record Inserted";
 		 else
-			 return "Record cannot be inserted";
+			 return "Record cannot be inserted" ;
 		 
 	}
 	//UPDATE -----------------------------------------------------------------------------------------------------------

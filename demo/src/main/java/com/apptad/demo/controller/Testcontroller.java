@@ -35,9 +35,10 @@ public String createEmployee(@RequestBody Employee employeeModel) {
 UpdateService updateService;
 @PutMapping(value="/update")
 public String updateEmployee(@RequestBody Employee employeeModel) {
-	return updateService.Update(employeeModel);
-	
+	return updateService.Update(employeeModel);	
 }
+
+
 //delete ---------------------------------------------------------------------------------
 @Autowired
 DeleteService deleteService;
@@ -54,8 +55,10 @@ SearchService searchService;
 @GetMapping(value="/search")
 public List<Employee> searchEmployee(@RequestParam String empId) {
 System.out.println(empId);
-		return searchService.Search(empId);
+		return searchService.Search(empId); 
 }
+
+
 //search By name -----------------------------------------------------------------------------------
 @Autowired
 SearchService searchServiceByName;
@@ -73,6 +76,8 @@ System.out.println(fname);
  * 
  * }
  */
+
+
 
 	
 @GetMapping(value="/test1")
@@ -112,9 +117,9 @@ public String Test7(@RequestBody Employee emp) {
 @PostMapping(value="/test8")
 public String Test8(@RequestBody Map<String, String> mymap) {
 	for(Map.Entry<String, String> emp:mymap.entrySet()) {
-		System.out.println("Key"+ " "+emp.getKey()+ "value"+emp.getValue());
+		System.out.println("Key"+ " "+emp.getKey()+ " "+"value"+emp.getValue());
 	}
-	return "hello Panda";	
+	return "hello pradeep";	
 }
 
 
