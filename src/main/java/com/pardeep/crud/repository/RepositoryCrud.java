@@ -50,7 +50,7 @@ NamedParameterJdbcTemplate namedParameterJdbcTemplate;
 		String regex="[6789][0-9]{9}";
 		boolean resultMobile =p1.matches(regex);
 		long m2=customer.getContact();
-		String storedPassword = customer.getSingleEntry(mobile,sql1);
+	
 	
 			if (resultMobile) {
 				if (resultEmail) {

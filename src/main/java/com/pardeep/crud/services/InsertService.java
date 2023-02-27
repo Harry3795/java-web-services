@@ -13,7 +13,7 @@ public class InsertService {
 	@Autowired
 	RepositoryCrud repo;
 	
-	@SuppressWarnings("unlikely-arg-type")
+	
 	public String insert(Customer customer) {
 		
 		if(repo.equals(customer.getContact())) {
